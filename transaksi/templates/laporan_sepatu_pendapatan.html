@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Sepatu Pendapatan</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient Background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        header nav ul li {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        
+        header nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Hover effect for navigation links */
+        header nav ul li a:hover {
+            background-color: #ff6347; /* Tomato Red color on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+        
+        /* Main Section */
+        main {
+            padding: 40px 20px;
+            text-align: center;
+            min-height: 60vh;
+        }
+        
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden; /* To avoid borders overlapping the rounded corners */
+            background-color: #ffffff; /* White background for the table */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+        
+        table th,
+        table td {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        table th {
+            background-color: #333;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        table td {
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        table tr:nth-child(even) td {
+            background-color: #f9f9f9; /* Light gray for even rows */
+        }
+        
+        /* Hover effect for table rows */
+        table tr:hover td {
+            background-color: #ff6347; /* Tomato red when hovered */
+            color: white; /* White text on hover */
+            transform: translateY(-2px); /* Slight lift effect on row hover */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Footer Section */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Same as header background */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+        }
+        
+        footer p {
+            font-size: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+        
+            header nav ul li {
+                margin-right: 15px;
+            }
+        
+            table {
+                width: 95%;
+            }
+        
+            table th, table td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Laporan Sepatu Pendapatan</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'laporan_sepatu_terlaris_view' %}">Laporan Sepatu Terlaris</a></li>
+                <li><a href="{% url 'laporan_sepatu_pendapatan_view' %}">Laporan Pendapatan</a></li>
+                <li><a href="{% url 'laporan_pelanggan_terbanyak_view' %}">Laporan Pelanggan Terbanyak</a></li>
+                <li><a href="{% url 'laporan_pelanggan_pengeluaran_view' %}">Laporan Pengeluaran</a></li>
+                <li><a href="{% url 'laporan_total_pendapatan_view' %}">Laporan Total Pendapatan</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Sepatu</th>
+                    <th>Merek</th>
+                    <th>Total Pendapatan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in laporan %}
+                    <tr>
+                        <td>{{ item.nama_sepatu }}</td>  <!-- Akses nama sepatu -->
+                        <td>{{ item.merek }}</td>         <!-- Akses merek -->
+                        <td>{{ item.total_pendapatan }}</td> <!-- Akses total pendapatan -->
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">No data available</td> <!-- Tampilkan pesan jika tidak ada data -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+</body>
+</html>

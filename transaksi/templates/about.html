@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        header nav ul li {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        
+        header nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Hover effect for navigation links */
+        header nav ul li a:hover {
+            background-color: #ff6347; /* Tomato Red color on hover */
+            color: black;
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+        }
+
+        main {
+            padding: 20px;
+            margin-bottom: 50px; /* Menambahkan ruang agar footer tidak tertutup */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            /* Menghapus fixed position agar footer tidak mengganggu konten */
+            position: relative; 
+            width: 100%;
+        }
+
+        .feature-list {
+            margin-top: 20px;
+        }
+
+        .feature-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+        }
+
+        .news-section {
+            margin-top: 30px;
+        }
+
+        .news-article {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-article h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .news-article p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Beranda</a></li>
+                <li><a href="{% url 'about' %}">Tentang</a></li>
+                <li><a href="{% url 'laporan_sepatu_terlaris_view' %}">Laporan Sepatu Terlaris</a></li>
+                <li><a href="{% url 'laporan_sepatu_pendapatan_view' %}">Laporan Pendapatan Sepatu</a></li>
+                <li><a href="{% url 'laporan_pelanggan_terbanyak_view' %}">Pelanggan Terbanyak</a></li>
+                <li><a href="{% url 'laporan_pelanggan_pengeluaran_view' %}">Pelanggan Pengeluaran</a></li>
+                <li><a href="{% url 'laporan_total_pendapatan_view' %}">Total Pendapatan</a></li>
+                <li><a href="{% url 'contact' %}">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <h1 style="text-align: center;">Tentang Kami</h1>
+        <h2>Selamat datang di Aplikasi Laporan Sepatu Kami!</h2>
+        <p>Aplikasi ini membantu Anda untuk memantau dan menganalisis data penjualan sepatu dan perilaku pelanggan. Dengan aplikasi ini, Anda dapat melihat laporan sepatu terlaris, pelanggan dengan pengeluaran terbesar, dan total pendapatan yang dihasilkan oleh transaksi sepatu.</p>
+
+        <div class="feature-list">
+            <h3>Fitur-fitur:</h3>
+            <ul>
+                <li>Melihat laporan sepatu terlaris berdasarkan jumlah penjualan.</li>
+                <li>Analisis data pelanggan, termasuk jumlah pesanan dan total pengeluaran.</li>
+                <li>Menampilkan pendapatan yang dihasilkan dari setiap transaksi sepatu.</li>
+                <li>Memudahkan pemahaman kinerja bisnis dengan laporan yang mudah dipahami.</li>
+            </ul>
+        </div>
+
+        <div class="news-section">
+            <h3>Berita Terbaru:</h3>
+            <div class="news-article">
+                <h3>Fitur Baru: Filter Berdasarkan Tanggal</h3>
+                <p>Kami baru saja merilis fitur yang memungkinkan Anda untuk memfilter laporan berdasarkan rentang waktu, memudahkan Anda melacak kinerja dalam periode tertentu.</p>
+            </div>
+            <div class="news-article">
+                <h3>Antarmuka Pengguna yang Diperbarui</h3>
+                <p>Antarmuka pengguna kami telah diperbarui untuk memberikan pengalaman yang lebih lancar dan navigasi yang lebih intuitif. Cobalah sekarang!</p>
+            </div>
+        </div>
+
+        <h3>Deskripsi URL:</h3>
+        <ul>
+            <li><strong>Home</strong>: Halaman utama yang menampilkan informasi umum aplikasi dan fitur yang ada.</li>
+            <li><strong>Tentang</strong>: Halaman ini memberikan informasi tentang aplikasi dan tujuan penggunaannya.</li>
+            <li><strong>Laporan Sepatu Terlaris</strong>: Menampilkan laporan sepatu terlaris berdasarkan total penjualan.</li>
+            <li><strong>Laporan Pendapatan Sepatu</strong>: Menampilkan laporan sepatu berdasarkan total pendapatan yang dihasilkan.</li>
+            <li><strong>Pelanggan Terbanyak</strong>: Menampilkan laporan pelanggan dengan jumlah pesanan terbanyak.</li>
+            <li><strong>Pelanggan Pengeluaran</strong>: Menampilkan pelanggan dengan pengeluaran terbesar.</li>
+            <li><strong>Total Pendapatan</strong>: Menampilkan total pendapatan yang dihasilkan oleh seluruh transaksi.</li>
+            <li><strong>Kontak</strong>: Halaman untuk menghubungi kami atau memberikan umpan balik.</li>
+        </ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Aplikasi Laporan Sepatu</p>
+    </footer>
+
+</body>
+</html>

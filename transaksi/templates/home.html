@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}" defer></script> {% endcomment %}
+    <style>
+        /* Reset styles for margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Navigation Styling */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect for navigation links */
+        nav ul li a:hover {
+            background-color: #ff6347;  /* Tomato color */
+            transform: scale(1.1); /* Slight zoom effect */
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Add a hover effect to the main content */
+        main:hover {
+            transform: scale(1.02);
+        }
+
+        main h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li {
+                margin-right: 15px;
+            }
+
+            main {
+                margin: 10px;
+                padding: 30px 10px;
+            }
+
+            main h2 {
+                font-size: 1.8rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Our Website!</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'laporan_sepatu_terlaris_view' %}">Laporan Sepatu Terlaris</a></li>
+                <li><a href="{% url 'laporan_sepatu_pendapatan_view' %}">Laporan Pendapatan</a></li>
+                <li><a href="{% url 'laporan_pelanggan_terbanyak_view' %}">Laporan Pelanggan Terbanyak</a></li>
+                <li><a href="{% url 'laporan_pelanggan_pengeluaran_view' %}">Laporan Pengeluaran</a></li>
+                <li><a href="{% url 'laporan_total_pendapatan_view' %}">Laporan Total Pendapatan</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2>Homepage Content</h2>
+        <p>Welcome to the homepage of your website. Explore our latest products and reports!</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <script>
+        // scripts.js
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Homepage loaded!");
+        });
+    </script>
+
+</body>
+</html>
